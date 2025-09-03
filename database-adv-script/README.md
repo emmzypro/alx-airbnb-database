@@ -25,3 +25,21 @@ This query returns:
 - All bookings, even if the `user_id` is missing or does not match a user.
 This is useful for auditing or seeing "orphan" data.
 
+
+# Subqueries in SQL
+
+This directory contains examples of correlated and non-correlated subqueries for the Airbnb Clone database project.
+
+## Files
+- **subqueries.sql** – Contains SQL queries demonstrating:
+  - **Non-Correlated Subquery:** Find all properties where the average rating is greater than 4.0.
+  - **Correlated Subquery:** Find users who have made more than 3 bookings.
+
+## Explanation
+### Non-Correlated Subquery
+The first query uses a subquery to calculate the average rating per property and filters for properties with an average rating above 4.0. This subquery runs independently and does not depend on values from the outer query.
+
+### Correlated Subquery
+The second query uses a correlated subquery that counts the number of bookings for each user (`b.user_id = u.id`). The outer query selects users who have more than 3 bookings. This subquery runs once for each user in the `users` table.
+
+
