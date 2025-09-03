@@ -1,5 +1,7 @@
 -- database_index.sql
 
+-- Create indexes to improve query performance
+
 -- Users table
 CREATE INDEX idx_users_email ON Users(email);
 
@@ -11,3 +13,11 @@ CREATE INDEX idx_properties_city ON Properties(city);
 CREATE INDEX idx_bookings_user_id ON Bookings(user_id);
 CREATE INDEX idx_bookings_property_id ON Bookings(property_id);
 CREATE INDEX idx_bookings_date ON Bookings(booking_date);
+
+-- Measure query performance before/after indexing using EXPLAIN ANALYZE
+-- Example query that benefits from the indexes
+EXPLAIN ANALYZE
+SELECT *
+FROM Bookings
+WHERE user_id = 10
+ORDER BY booking_date DESC;
