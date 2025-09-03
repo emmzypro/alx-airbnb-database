@@ -43,21 +43,21 @@ The first query uses a subquery to calculate the average rating per property and
 The second query uses a correlated subquery that counts the number of bookings for each user (`b.user_id = u.id`). The outer query selects users who have more than 3 bookings. This subquery runs once for each user in the `users` table.
 
 
-# SQL Aggregation and Window Functions
+# Aggregations and Window Functions
 
-This directory contains examples of SQL aggregation and window functions for analyzing data in the Airbnb Clone database.
+This file contains SQL queries that demonstrate the use of **aggregation functions** (`COUNT`) and **window functions** (`RANK`, `ROW_NUMBER`) to analyze booking data.
 
-## Files
-- **aggregations.sql** – Contains:
-  - **Total Bookings per User:** Uses `COUNT()` and `GROUP BY` to find how many bookings each user has made.
-  - **Ranking Properties by Bookings:** Uses `RANK()` window function to rank properties based on total number of bookings.
+## Queries Included
 
-## Explanation
-### Aggregation Query
-The first query groups bookings by user and counts them using `COUNT(b.id)`. A `LEFT JOIN` is used to include users with zero bookings.
+### 1. Total Number of Bookings by Each User
+Counts how many bookings each user has made.
 
-### Window Function Query
-The second query uses `RANK() OVER (ORDER BY COUNT(b.id) DESC)` to assign a rank to each property based on how many bookings it has. This allows for ordering and ranking without collapsing rows like `GROUP BY` alone would.
+```sql
+SELECT 
+    user_id, 
+    COUNT(*) AS total_bookings
+FROM bookings
+GROUP BY user_id;
 
 
 
