@@ -1,3 +1,4 @@
+
 ---
 
 # Query Performance Optimization Report
