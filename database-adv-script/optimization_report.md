@@ -129,7 +129,7 @@ This clearly shows:
 
 ### Query Performance Comparison
 
-![Query Performance Comparison](./query_performance_comparison.png)
+![Query Performance Comparison](database-adv-script/query_performance_comparison.png)
 
 The chart above shows that after optimization, execution time was reduced by nearly **50%**, resulting in faster response times and better performance for end-users.
 
